@@ -4,8 +4,10 @@ function Home() {
 
     return (
         <div className="container">
-            <h2>Expenses</h2>
-            <ButtonMenu />
+            <div className="top-menu">
+                <h2>All Expenses</h2>
+                <ButtonMenu />
+            </div>
         </div>
     );
 

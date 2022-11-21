@@ -1,7 +1,7 @@
 function Navbar() {
 
     return (
-        <nav class="navbar">
+        <nav className="navbar">
             <h1 id="title">Expense Tracker</h1>
             <ul id="links">
                 <li><a href="" target="_blank">Home</a></li>

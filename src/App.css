@@ -1,10 +1,20 @@
+.no-select {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -khtml-user-select: none;
+  -ms-user-select: none;
+}
+
 .navbar {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;
   justify-content: space-between;
-  padding-top: 5px;
+  padding: 20px 0;
+  border-bottom: 1px solid #d96200;
 }
 #title {
   font-size: 2.5rem;
@@ -36,16 +46,15 @@
 .container {
   width: 65%;
   margin: 50px auto;
-  border: 2px solid blue;
 }
 
-.no-select {
-  user-select: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -webkit-touch-callout: none;
-  -khtml-user-select: none;
-  -ms-user-select: none;
+.top-menu {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
 }
 
 #button-bar {
