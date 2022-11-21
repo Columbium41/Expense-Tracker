@@ -1,14 +1,13 @@
 import './App.css';
+import ButtonMenu from './ButtonMenu';
+import Navbar from './Navbar';
+import Home from './Home';
 
 function App() {
-  const appTitle = "Expense Tracker";
-
   return (
     <div className="App">
-      <div className="container">
-        <h1 id="title">{ appTitle }</h1>
-        
-      </div>
+      <Navbar />
+      <Home />
     </div>
   );
 }

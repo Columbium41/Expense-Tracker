@@ -1,14 +1,81 @@
-.App {
-  border: 2px solid red;
+.navbar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+#title {
+  font-size: 3rem;
+  text-align: center;
+  font-weight: 600;
+  margin-left: 50px;
+  color: #d96200;
+}
+#links {
+  list-style: none;
+}
+#links > li {
+  display: inline;
+  margin-right: 50px;
+  text-decoration: none;
 }
 
 .container {
-  width: 80%;
+  width: 65%;
   margin: 50px auto;
   border: 2px solid blue;
 }
 
-#title {
-  font-size: 3rem;
-  text-align: center;
+.no-select {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -khtml-user-select: none;
+  -ms-user-select: none;
+}
+
+#button-bar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.menu-button {
+  font-size: 1.2rem;
+  padding: 5px 8px;
+  margin-left: 15px;
+  color: #000000;
+  font-weight: bold;
+  border: 1.5px solid #1e1e1e;
+  transition: background 0.25s, border 0.1s;
+  border-radius: 5px;
+}
+.menu-button:active {
+  border: 1.5px solid #646464;
+}
+
+#create-button {
+  background: #00c800;
+}
+#create-button:hover {
+  background: #00dc00;
+}
+
+#update-button {
+  background: #0082c8;
+}
+#update-button:hover {
+  background: #0096dc;
+}
+
+#delete-button {
+  background: #c80000;
+}
+#delete-button:hover {
+  background: #dc0000;
 }
