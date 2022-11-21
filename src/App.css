@@ -4,10 +4,10 @@
   flex-wrap: nowrap;
   align-items: center;
   justify-content: space-between;
-  padding-top: 10px;
+  padding-top: 5px;
 }
 #title {
-  font-size: 3rem;
+  font-size: 2.5rem;
   text-align: center;
   font-weight: 600;
   margin-left: 50px;
@@ -16,10 +16,21 @@
 #links {
   list-style: none;
 }
-#links > li {
+#links li {
   display: inline;
   margin-right: 50px;
+}
+#links a {
   text-decoration: none;
+  color: black;
+  font-size: 1.1rem;
+  transition: color 0.25s;
+}
+#links a:hover {
+  color: #d96200;
+}
+#links a:active {
+  color: #a6500a;
 }
 
 .container {
