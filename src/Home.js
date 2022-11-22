@@ -1,16 +1,27 @@
 import ButtonMenu from "./ButtonMenu";
+import ExpenseList from "./ExpenseList";
+import Expense from "./Expense";
+import { useState } from 'react';
 
 function Home() {
+    const searchQuery = "";
+
+    // Create a state hook for expenses that can be dynamically rendered and modified
+    const [expenses, setExpenses] = useState([
+        new Expense('CoCo Fresh Tea & Juice', 5.87, 'Bought a Medium Taro Drink', new Date(2022, 8, 23).toString().substring(4, 15), 1), 
+        new Expense('Amazon', 22.23, 'Bought an Office Mouse', new Date(2022, 8, 17).toString().substring(4, 15), 2), 
+        new Expense('VIA Rail', 200.67, 'Bought two Train Tickets', new Date(2021, 6, 12).toString().substring(4, 15), 3)
+    ]);
 
     return (
         <div className="container">
             <div className="top-menu">
-                <h2>All Expenses</h2>
+                <h2> {(searchQuery === "") ? ("All Expenses") : `Expenses Matching '${searchQuery}'`} </h2>
                 <ButtonMenu />
             </div>
+            <ExpenseList expenses={expenses} />
         </div>
     );
-
 }
 
 export default Home;

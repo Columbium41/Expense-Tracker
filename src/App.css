@@ -44,7 +44,7 @@
 }
 
 .container {
-  width: 65%;
+  width: 50%;
   margin: 50px auto;
 }
 
@@ -55,6 +55,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
+  margin-bottom: 50px;
 }
 
 #button-bar {
@@ -98,4 +99,35 @@
 }
 #delete-button:hover {
   background: #dc0000;
+}
+
+#total-cost {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 8px 10px 8px;
+}
+
+.expense {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 25px;
+  padding: 8px;
+
+  transition: box-shadow 0.3s;
+}
+.expense:hover {
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
+}
+
+.expense > h2, 
+#total-cost > h2 {
+  flex-basis: 50%;
+  margin-bottom: 5px;
+}
+.cost {
+  text-align: right;
 }

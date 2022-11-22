@@ -1,5 +1,4 @@
 function ButtonMenu() {
-
     // Button Functions
     const handleCreateClick = () => {
         console.log("Pressed Create Button");
@@ -11,6 +10,7 @@ function ButtonMenu() {
         console.log("Pressed Delete Button");
     };
 
+    // Return a component which contains a create, update, and delete button
     return (
         <div id="button-bar">
             <button type="button" className="menu-button no-select" id="create-button" onClick={handleCreateClick}>Create</button>
