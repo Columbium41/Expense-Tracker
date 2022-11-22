@@ -108,11 +108,11 @@
 }
 
 .expense {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 20fr 10fr;
+  row-gap: 5px;
+
   align-items: center;
-  justify-content: space-between;
 
   margin-bottom: 25px;
   padding: 8px;
@@ -123,11 +123,11 @@
   box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
 }
 
-.expense > h2, 
-#total-cost > h2 {
-  flex-basis: 50%;
-  margin-bottom: 5px;
+.select-button {
+  grid-row: span 2;
 }
-.cost {
-  text-align: right;
+
+.cost,
+.date {
+  justify-self: end;
 }
