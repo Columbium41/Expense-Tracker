@@ -1,12 +1,10 @@
-function ExpenseList({ expenses }) {
-    let totalCost = 0;
-
-    // Calculate the total cost of all expenses
-    for (var i = 0; i < expenses.length; i++) {
-        totalCost += expenses[i].cost;
-    }
-    totalCost = totalCost.toFixed(2);  // Round to 2 decimal places
-
+/**
+ * Returns a JSX element containing the ExpenseList component
+ * @param {object} expenses  An array containing Expense objects
+ * @param {Number} totalCost A number containing the sum of costs in 'expenses'
+ * @returns {JSX.Element}    An ExpenseList component
+ */
+function ExpenseList({ expenses, totalCost }) {
     return (
         <div className="expense-list">
             <div id="total-cost">
@@ -15,7 +13,9 @@ function ExpenseList({ expenses }) {
             </div>
             {expenses.map((expense) => (
                 <div className="expense" key={ expense.id }>
-                    <input type="checkbox" className="select-button" />
+                    <input type="checkbox" className="select-button" onClick={(e) => {
+                        expense.isSelected = e.target.checked;
+                    }} />
                     <h2>{ expense.to }</h2>
                     <h2 className="cost">${ expense.cost }</h2>
                     <p>{ expense.desc }</p>

@@ -1,4 +1,9 @@
+/**
+ * Returns a JSX Element containing the Navigation Bar
+ * @returns {JSX.Element} The Navigation Bar component for the app
+ */
 function Navbar() {
+    // TODO: Add functionality to links
     return (
         <nav className="navbar">
             <h1 id="title">Expense Tracker</h1>

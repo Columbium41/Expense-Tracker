@@ -109,8 +109,8 @@
 
 .expense {
   display: grid;
-  grid-template-columns: 1fr 20fr 10fr;
-  row-gap: 5px;
+  grid-template-columns: 1fr 16fr 8fr;
+  gap: 5px;
 
   align-items: center;
 
