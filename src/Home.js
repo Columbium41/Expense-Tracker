@@ -1,7 +1,7 @@
 import ButtonMenu from "./ButtonMenu";
 import ExpenseList from "./ExpenseList";
 import Expense from "./Expense";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 /**
 * Sum the cost of each Expense object in 'expenses'
@@ -42,8 +42,12 @@ function Home() {
     const handleDelete = () => {
         const filteredExpenses = expenses.filter(expense => expense.isSelected === false);
         setExpenses(filteredExpenses);
-        setTotalCost(calculateTotalCost(filteredExpenses));
     };
+
+    // Create an effect hook that updates the total cost of expenses whenever 'expenses' changes
+    useEffect(() => {
+        setTotalCost(calculateTotalCost(expenses));
+    }, [expenses]);
 
     return (
         <div className="container">

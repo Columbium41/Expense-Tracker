@@ -9,3 +9,4 @@ Currently a work-in-progress expense tracker web app built with the React JavaSc
 - React Components
 - React Props
 - React State hooks
+- React Effect hooks
