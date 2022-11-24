@@ -1,6 +1,6 @@
 import ButtonMenu from "./ButtonMenu";
 import ExpenseList from "./ExpenseList";
-import Expense from "./Expense";
+import FetchingOverlay from "./FetchingOverlay";
 import { useState, useEffect } from 'react';
 
 /**
@@ -23,11 +23,12 @@ function Home() {
     const searchQuery = "";
 
     // Create a state hook containing expenses that can be dynamically rendered and modified
-    const [expenses, setExpenses] = useState([
-        new Expense('CoCo Fresh Tea & Juice', 5.87, 'Bought a Medium Taro Drink', new Date(2022, 8, 23).toString().substring(4, 15), 1, false), 
-        new Expense('Amazon', 22.23, 'Bought an Office Mouse', new Date(2022, 8, 17).toString().substring(4, 15), 2, false), 
-        new Expense('VIA Rail', 200.67, 'Bought two Train Tickets', new Date(2021, 6, 12).toString().substring(4, 15), 3, false)
-    ]);
+    const [expenses, setExpenses] = useState([]);
+
+    // Create a state hook containing which expenses are selected
+    const [selected, setSelected] = useState([]);
+
+    const [isFetching, setIsFetching] = useState(true);
 
     // Create a state hook containing the total of all displayed expenses
     const [totalCost, setTotalCost] = useState(calculateTotalCost(expenses));
@@ -40,22 +41,37 @@ function Home() {
         console.log("Pressed Update Button");
     };
     const handleDelete = () => {
-        const filteredExpenses = expenses.filter(expense => expense.isSelected === false);
+        const filteredExpenses = expenses.filter(expense => selected[expense.id - 1] === false);
         setExpenses(filteredExpenses);
     };
 
-    // Create an effect hook that updates the total cost of expenses whenever 'expenses' changes
+    // Create an effect hook that fetches data from the json database once
+    useEffect(() => {
+        fetch('http://localhost:8000/expenses/')
+            .then(res => {
+                return res.json();
+            })
+            .then(data => {
+                setExpenses(data);
+                setSelected(new Array(data.length).fill(false));
+                setIsFetching(false);
+            });
+    }, []);
+
+    // Create an effect hook that runs everytime 'expenses' changes
     useEffect(() => {
         setTotalCost(calculateTotalCost(expenses));
     }, [expenses]);
 
     return (
         <div className="container">
+            { isFetching && <FetchingOverlay /> }
+            { !isFetching && 
             <div className="top-menu">
                 <h2> {(searchQuery === "") ? ("All Expenses") : `Expenses Matching '${searchQuery}'`} </h2>
                 <ButtonMenu handleCreate={handleCreate} handleUpdate={handleUpdate} handleDelete={handleDelete} />
-            </div>
-            <ExpenseList expenses={expenses} totalCost={totalCost} />
+            </div> }
+            { !isFetching && <ExpenseList expenses={expenses} totalCost={totalCost} selected={selected} /> }
         </div>
     );
 }

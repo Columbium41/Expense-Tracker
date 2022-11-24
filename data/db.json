@@ -1,0 +1,25 @@
+{
+    "expenses": [
+        {
+            "to": "CoCo Fresh Tea & Juice",
+            "cost": 5.87,
+            "desc": "Bought a Medium Taro Drink",
+            "date": "Sep 23 2022",
+            "id": 1
+        },
+        {
+            "to": "Amazon",
+            "cost": 22.23,
+            "desc": "Bought an Office Mouse",
+            "date": "Sep 17 2022",
+            "id": 2
+        },
+        {
+            "to": "VIA Rail",
+            "cost": 200.67,
+            "desc": "Bought two Train Tickets",
+            "date": "Jul 12 2021",
+            "id": 3
+        }
+    ]
+}

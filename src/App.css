@@ -131,3 +131,7 @@
 .date {
   justify-self: end;
 }
+
+.fetching-overlay {
+  text-align: center;
+}

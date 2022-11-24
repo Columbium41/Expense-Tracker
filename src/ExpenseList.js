@@ -4,7 +4,7 @@
  * @param {Number} totalCost A number containing the sum of costs in 'expenses'
  * @returns {JSX.Element}    An ExpenseList component
  */
-function ExpenseList({ expenses, totalCost }) {
+function ExpenseList({ expenses, totalCost, selected }) {
     return (
         <div className="expense-list">
             <div id="total-cost">
@@ -14,7 +14,7 @@ function ExpenseList({ expenses, totalCost }) {
             {expenses.map((expense) => (
                 <div className="expense" key={ expense.id }>
                     <input type="checkbox" className="select-button" onClick={(e) => {
-                        expense.isSelected = e.target.checked;
+                        selected[expense.id - 1] = e.target.checked;
                     }} />
                     <h2>{ expense.to }</h2>
                     <h2 className="cost">${ expense.cost }</h2>
