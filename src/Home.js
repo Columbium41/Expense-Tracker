@@ -20,7 +20,7 @@ function calculateTotalCost(expenses) {
  * Returns a JSX element containing the Home component
  * @returns {JSX.Element} The Home component for the app
  */
-function Home() {
+const Home = () => {
     // TODO: Add searching feature to search specific expenses
     const searchQuery = "";
 
@@ -35,6 +35,7 @@ function Home() {
         console.log("Pressed Update Button");
     };
     const handleDelete = () => {
+        console.log("Pressed Delete Button");
         // TODO: Add delete functionality
         // const filteredExpenses = expenses.filter(expense => selected[expense.id - 1] === false);
         //setExpenses(filteredExpenses);

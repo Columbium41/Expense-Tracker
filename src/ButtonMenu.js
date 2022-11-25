@@ -5,7 +5,7 @@
  * @param {function} handleDelete A function that deletes expenses
  * @returns {JSX.Element}         The ButtonMenu component for the app
  */
-function ButtonMenu({ handleCreate, handleUpdate, handleDelete }) {
+const ButtonMenu = ({ handleCreate, handleUpdate, handleDelete }) => {
     return (
         <div id="button-bar">
             <button type="button" className="menu-button no-select" id="create-button" onClick={() => {

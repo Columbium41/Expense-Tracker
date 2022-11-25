@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
  * @param {string} url The url to fetch data from
  * @returns {object}   An object containing fetch data
  */
-function useFetch(url) {
+const useFetch = (url) => {
     const [data, setData] = useState([]);
     const [isFetching, setIsFetching] = useState(true);
     const [fetchError, setFetchError] = useState(false);

@@ -5,7 +5,7 @@
  * @param {object} selected  A boolean array indicating if each expense is selected 
  * @returns {JSX.Element}    An ExpenseList component
  */
-function ExpenseList({ expenses, totalCost, selected }) {
+const ExpenseList = ({ expenses, totalCost, selected }) => {
     return (
         <div className="expense-list">
             <div id="total-cost">
