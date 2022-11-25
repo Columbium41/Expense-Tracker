@@ -132,6 +132,7 @@
   justify-self: end;
 }
 
-.fetching-overlay {
+.fetching-overlay,
+.error-overlay {
   text-align: center;
 }

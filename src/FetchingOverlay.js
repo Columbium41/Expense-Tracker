@@ -1,3 +1,7 @@
+/**
+ * Returns a JSX component containing a loading message
+ * @returns {JSX.Element} Returns a JSX element containing a fetching overlay
+ */
 function FetchingOverlay() {
     return (
         <div className="fetching-overlay">

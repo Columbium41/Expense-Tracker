@@ -2,6 +2,7 @@
  * Returns a JSX element containing the ExpenseList component
  * @param {object} expenses  An array containing Expense objects
  * @param {Number} totalCost A number containing the sum of costs in 'expenses'
+ * @param {object} selected  A boolean array indicating if each expense is selected 
  * @returns {JSX.Element}    An ExpenseList component
  */
 function ExpenseList({ expenses, totalCost, selected }) {

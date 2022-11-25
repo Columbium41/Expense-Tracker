@@ -14,8 +14,7 @@ function ButtonMenu({ handleCreate, handleUpdate, handleDelete }) {
             <button type="button" className="menu-button no-select" id="update-button" onClick={() => {
                 handleUpdate();
             }}>Update</button>
-            <button type="button" className="menu-button no-select" 
-            id="delete-button" onClick={handleDelete}>Delete</button>
+            <button type="button" className="menu-button no-select" id="delete-button" onClick={handleDelete}>Delete</button>
         </div>
     );
 }
