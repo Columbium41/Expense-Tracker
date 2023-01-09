@@ -3,7 +3,7 @@ import ExpenseList from "./ExpenseList";
 import FetchingOverlay from "./FetchingOverlay";
 import ErrorOverlay from "./ErrorOverlay";
 import { useState, useEffect } from 'react';
-import useFetch from "./useFetch";
+import useFetch from "../hooks/useFetch";
 
 /**
 * Sum the cost of each Expense object in 'expenses'
@@ -36,9 +36,6 @@ const Home = () => {
     };
     const handleDelete = () => {
         console.log("Pressed Delete Button");
-        // TODO: Add delete functionality
-        // const filteredExpenses = expenses.filter(expense => selected[expense.id - 1] === false);
-        //setExpenses(filteredExpenses);
     };
 
     // Fetch data from json server

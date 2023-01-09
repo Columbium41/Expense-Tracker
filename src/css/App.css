@@ -82,6 +82,7 @@ p {
   border: 1.5px solid #1e1e1e;
   transition: background 0.25s, border 0.1s;
   border-radius: 5px;
+  cursor: pointer;
 }
 .menu-button:active {
   border: 1.5px solid #646464;

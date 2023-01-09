@@ -1,7 +1,7 @@
-import './App.css';
-import Navbar from './Navbar';
-import Home from './Home';
-import About from './About';
+import './css/App.css';
+import Navbar from './components/Navbar';
+import Home from './components/Home';
+import About from './components/About';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 /**
