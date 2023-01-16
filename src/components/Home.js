@@ -12,7 +12,7 @@ import useFetch from "../hooks/useFetch";
 */
 function calculateTotalCost(expenses) {
     return expenses.reduce((total, expense) => {
-        return total + expense.cost;
+        return total + expense.amount;
     }, 0).toFixed(2);
 }
 
@@ -28,9 +28,6 @@ const Home = () => {
     const [totalCost, setTotalCost] = useState(0);
 
     // CRUD Functions
-    const handleCreate = () => {
-        console.log("Pressed Create Button");
-    };
     const handleUpdate = () => {
         console.log("Pressed Update Button");
     };
@@ -53,7 +50,7 @@ const Home = () => {
             { !fetchError && !isFetching && 
             <div className="top-menu">
                 <h2> {(searchQuery === "") ? ("All Expenses") : `Expenses Matching '${searchQuery}'`} </h2>
-                <ButtonMenu handleCreate={handleCreate} handleUpdate={handleUpdate} handleDelete={handleDelete} />
+                <ButtonMenu handleUpdate={handleUpdate} handleDelete={handleDelete} />
             </div> }
             { !fetchError && !isFetching && <ExpenseList expenses={expenses} totalCost={totalCost} selected={selected} /> }
         </div>

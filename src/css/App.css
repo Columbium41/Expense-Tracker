@@ -1,3 +1,19 @@
+:root {
+  --green-theme: #00c800;
+  --blue-theme: #0082c8;
+  --red-theme: #c80000;
+  --orange-theme: #d96200;
+}
+.green-bg {
+  background: var(--green-theme);
+}
+.blue-bg {
+  background: var(--blue-theme);
+}
+.red-bg {
+  background: var(--red-theme);
+}
+
 .no-select {
   user-select: none;
   -moz-user-select: none;
@@ -10,10 +26,15 @@
   text-align: center;
   margin-bottom: 20px;
 }
+.container {
+  width: 50%;
+  margin: 50px auto;
+}
 p {
   font-size: 18px;
 }
 
+/* NAVIGATION BAR */
 .navbar {
   display: flex;
   flex-direction: row;
@@ -21,14 +42,14 @@ p {
   align-items: center;
   justify-content: space-between;
   padding: 20px 0;
-  border-bottom: 1px solid #d96200;
+  border-bottom: 1px solid var(--orange-theme);
 }
 #title {
   font-size: 2.5rem;
   text-align: center;
   font-weight: 600;
   margin-left: 50px;
-  color: #d96200;
+  color: var(--orange-theme);
 }
 #links {
   list-style: none;
@@ -44,15 +65,10 @@ p {
   transition: color 0.25s;
 }
 #links a:hover {
-  color: #d96200;
+  color: var(--orange-theme);
 }
 #links a:active {
   color: #a6500a;
-}
-
-.container {
-  width: 50%;
-  margin: 50px auto;
 }
 
 .top-menu {
@@ -61,10 +77,8 @@ p {
   flex-wrap: nowrap;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
   margin-bottom: 50px;
 }
-
 #button-bar {
   display: flex;
   flex-direction: row;
@@ -73,40 +87,25 @@ p {
   justify-content: flex-end;
 }
 
+/* MENU BUTTONS */
+#button-bar {
+  gap: 10px;
+}
 .menu-button {
   font-size: 1.2rem;
   padding: 5px 8px;
-  margin-left: 15px;
   color: #000000;
   font-weight: bold;
   border: 1.5px solid #1e1e1e;
-  transition: background 0.25s, border 0.1s;
+  transition: filter 0.25s, border 0.1s;
   border-radius: 5px;
   cursor: pointer;
 }
+.menu-button:hover {
+  filter: brightness(105%);
+}
 .menu-button:active {
-  border: 1.5px solid #646464;
-}
-
-#create-button {
-  background: #00c800;
-}
-#create-button:hover {
-  background: #00dc00;
-}
-
-#update-button {
-  background: #0082c8;
-}
-#update-button:hover {
-  background: #0096dc;
-}
-
-#delete-button {
-  background: #c80000;
-}
-#delete-button:hover {
-  background: #dc0000;
+  filter: brightness(110%);
 }
 
 #total-cost {
@@ -115,6 +114,7 @@ p {
   padding: 0 8px 10px 8px;
 }
 
+/* EXPENSE ITEMS */
 .expense {
   display: grid;
   grid-template-columns: 1fr 16fr 8fr;
@@ -130,11 +130,9 @@ p {
 .expense:hover {
   box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
 }
-
 .select-button {
   grid-row: span 2;
 }
-
 .cost,
 .date {
   justify-self: end;
@@ -143,4 +141,21 @@ p {
 .fetching-overlay,
 .error-overlay {
   text-align: center;
+}
+
+/* CREATE PAGE */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form > input {
+  font-size: inherit;
+  font-family: inherit;
+  width: 50%;
+  padding: 0.5ch 1ch;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid black;
 }

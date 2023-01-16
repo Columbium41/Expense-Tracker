@@ -5,7 +5,7 @@
 const ErrorOverlay = () => {
     return (
         <div className="error-overlay">
-            <h2>Error while trying to fetch data. Please try again later.</h2>
+            <h2>Error while trying to fetch data. Please refresh the browser and try again later.</h2>
         </div>
     )
 }

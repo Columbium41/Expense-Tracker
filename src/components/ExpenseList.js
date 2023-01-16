@@ -17,9 +17,9 @@ const ExpenseList = ({ expenses, totalCost, selected }) => {
                     <input type="checkbox" className="select-button" onClick={(e) => {
                         selected[expense.id - 1] = e.target.checked;
                     }} />
-                    <h2>{ expense.to }</h2>
-                    <h2 className="cost">${ expense.cost }</h2>
-                    <p>{ expense.desc }</p>
+                    <h2>{ expense.title }</h2>
+                    <h2 className="cost">${ expense.amount }</h2>
+                    <p>{ expense.summary }</p>
                     <p className="date">{ expense.date }</p>
                 </div>
             ))}
