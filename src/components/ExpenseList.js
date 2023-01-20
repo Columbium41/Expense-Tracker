@@ -5,7 +5,7 @@
  * @param {object} selected  A boolean array indicating if each expense is selected 
  * @returns {JSX.Element}    An ExpenseList component
  */
-const ExpenseList = ({ expenses, totalCost, selected }) => {
+const ExpenseList = ({ expenses, totalCost }) => {
     return (
         <div className="expense-list">
             <div id="total-cost">
@@ -14,9 +14,7 @@ const ExpenseList = ({ expenses, totalCost, selected }) => {
             </div>
             {expenses.map((expense) => (
                 <div className="expense" key={ expense.id }>
-                    <input type="checkbox" className="select-button" onClick={(e) => {
-                        selected[expense.id - 1] = e.target.checked;
-                    }} />
+                    <input type="checkbox" className="select-button" id={ "checkbox_" + expense.id } />
                     <h2>{ expense.title }</h2>
                     <h2 className="cost">${ expense.amount }</h2>
                     <p>{ expense.summary }</p>

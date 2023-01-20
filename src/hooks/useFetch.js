@@ -9,7 +9,6 @@ const useFetch = (url) => {
     const [data, setData] = useState([]);
     const [isFetching, setIsFetching] = useState(true);
     const [fetchError, setFetchError] = useState(false);
-    const [selected, setSelected] = useState([]);
 
     // Create an effect hook that fetches data from the json database
     useEffect(() => {
@@ -24,7 +23,6 @@ const useFetch = (url) => {
             })
             .then(data => {
                 setData(data);
-                setSelected(new Array(data.length).fill(false));
                 setIsFetching(false);
             })
             .catch((err) => {
@@ -34,7 +32,7 @@ const useFetch = (url) => {
             });
     }, [url]);
 
-    return { data, isFetching, fetchError, selected };
+    return { data, isFetching, fetchError };
 
 }
 
