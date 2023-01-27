@@ -6,6 +6,8 @@ import Create from './components/Create';
 import Update from './components/Update';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { useState } from 'react';
+import NotFound from './components/NotFound';
+import Expense from './components/Expense';
 
 /**
  * Returns a JSX element containing the react app
@@ -31,6 +33,12 @@ function App() {
             </Route>
             <Route exact path="/update">
               <Update selectedExpense={selectedExpense} />
+            </Route>
+            <Route path="/expense/:id">
+              <Expense />
+            </Route>
+            <Route path="*">
+              <NotFound />
             </Route>
           </Switch>
         </div>

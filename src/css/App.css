@@ -165,3 +165,12 @@ form > input {
   border-radius: 5px;
   border: 1px solid black;
 }
+
+.expense-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.expense-information {
+  margin-bottom: 20px;
+}

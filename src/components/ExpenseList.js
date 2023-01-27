@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 /**
  * Returns a JSX element containing the ExpenseList component
  * @param {object} expenses  An array containing Expense objects
@@ -13,13 +15,15 @@ const ExpenseList = ({ expenses, totalCost }) => {
                 <h2 className="cost">${ totalCost }</h2>
             </div>
             {expenses.map((expense) => (
-                <div className="expense" key={ expense.id }>
-                    <input type="checkbox" className="select-button" id={ "checkbox_" + expense.id } />
-                    <h2>{ expense.title }</h2>
-                    <h2 className="cost">${ expense.amount }</h2>
-                    <p>{ expense.summary }</p>
-                    <p className="date">{ expense.date }</p>
-                </div>
+                <Link to={"/expense/" + expense.id} className="expense-link" key={ expense.id }>
+                    <div className="expense">
+                        <input type="checkbox" className="select-button" id={ "checkbox_" + expense.id } />
+                        <h2>{ expense.title }</h2>
+                        <h2 className="cost">${ expense.amount }</h2>
+                        <p>{ expense.summary }</p>
+                        <p className="date">{ expense.date }</p>
+                    </div>
+                </Link>
             ))}
         </div>
     );
