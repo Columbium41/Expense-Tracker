@@ -137,6 +137,12 @@ p {
 .date {
   justify-self: end;
 }
+.expense > h2,
+.expense > p {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
 
 .fetching-overlay,
 .error-overlay {

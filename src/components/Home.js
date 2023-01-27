@@ -21,7 +21,7 @@ function calculateTotalCost(expenses) {
  * Returns a JSX element containing the Home component
  * @returns {JSX.Element} The Home component for the app
  */
-const Home = () => {
+const Home = ({setSelectedExpense}) => {
     const history = useHistory();
 
     // Create a state hook containing the total of all displayed expenses
@@ -37,9 +37,31 @@ const Home = () => {
 
     // CRUD Functions
     const handleUpdate = () => {
-        console.log("Pressed Update Button");
+        var numSelected = 0;
+
+        // Loop through all expenses
+        for (var i = 0; i < expenses.length; i++) {
+            const id = expenses[i].id;
+            const selected = document.querySelector(`#checkbox_${id}`).checked;
+
+            if (selected) {
+                numSelected++;
+                setSelectedExpense(expenses[i]);
+            }
+        }
+
+        // Update and redirect user if only one expense is selected
+        if (numSelected === 1) {
+            history.push("/update");
+        }
+        else {
+            setSelectedExpense(null);
+        }
     };
+    
     const handleDelete = () => {
+        var deleted = false;
+
         // Loop through all expenses
         for (var i = 0; i < expenses.length; i++) {
             const id = expenses[i].id;
@@ -48,11 +70,15 @@ const Home = () => {
             if (selected) {
                 fetch(`http://localhost:8000/expenses/${id}`, {
                     method: "DELETE"
-                }).then(() => {
-                    history.go(0);
                 });
+                deleted = true;
             }
         }
+
+        if (deleted) {
+            history.go(0);
+        }
+
     };
 
     return (

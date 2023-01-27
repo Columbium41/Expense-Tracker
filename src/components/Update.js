@@ -2,36 +2,42 @@ import { useState } from "react";
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 
-const Create = () => {
-    const [title, setTitle] = useState('');
-    const [date, setDate] = useState('');
-    const [amount, setAmount] = useState('');
-    const [summary, setSummary] = useState('');
-    const [isPosting, setIsPosting] = useState(false);
+const Update = ({selectedExpense}) => {
+    const [title, setTitle] = useState((selectedExpense) ? selectedExpense.title : "");
+    const [date, setDate] = useState((selectedExpense) ? selectedExpense.date : "");
+    const [amount, setAmount] = useState((selectedExpense) ? selectedExpense.amount : "");
+    const [summary, setSummary] = useState((selectedExpense) ? selectedExpense.summary : "");
+    const [isUpdating, setIsUpdating] = useState(false);
     const history = useHistory();
-    
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        const expense = { title, date, amount, summary };
 
-        setIsPosting(true);
+        if (selectedExpense !== null) {
+            const expense = { title, date, amount, summary };
 
-        fetch('http://localhost:8000/expenses', {
-            method: 'POST',
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(expense)
-        }).then(() => {
-            setIsPosting(false);
+            setIsUpdating(true);
 
-            // Redirect user back to home page after posting new expense
-            history.push('/');
-        });
+            fetch(`http://localhost:8000/expenses/${selectedExpense.id}`, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(expense)
+            }).then(() => {
+                setIsUpdating(false);
+
+                history.push('/');
+            });
+        }
+        history.push('/');
+
     };
 
     return (
         <div className="container">
             <Link to="/"><button id="back-button" className="menu-button red-bg">Back</button></Link>
-            <h2 className="header">Add a new Expense</h2>
+            <h2 className="header">Update Expense</h2>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="">Title: </label>
                 <input 
@@ -69,16 +75,16 @@ const Create = () => {
                     onChange={(e) => setSummary(e.target.value)}
                 />
 
-                {!isPosting && <button id="create-expense-button" className="menu-button green-bg">
-                    Create Expense
+                {!isUpdating && <button id="create-expense-button" className="menu-button blue-bg">
+                    Update Expense
                 </button>}
-                {isPosting && <button id="create-expense-button" className="menu-button green-bg" disabled>
-                    Creating Expense...
+                {isUpdating && <button id="create-expense-button" className="menu-button blue-bg" disabled>
+                    Updating Expense...
                 </button>}
             </form>
         </div>
-    );
+    )
 
-};
+}
 
-export default Create;
+export default Update;

@@ -9,14 +9,19 @@ import { Link } from 'react-router-dom';
 const ButtonMenu = ({ handleUpdate, handleDelete }) => {
     return (
         <div id="button-bar">
-            <Link to="/create"><button 
+            <Link to="/create">
+                <button 
+                    type="button" 
+                    className="menu-button no-select green-bg" 
+                    id="create-button">Create
+                </button>
+            </Link>
+            <button 
                 type="button" 
-                className="menu-button no-select green-bg" 
-                id="create-button">Create
-            </button></Link>
-            <button type="button" className="menu-button no-select blue-bg" id="update-button" onClick={() => {
-                handleUpdate();
-            }}>Update</button>
+                className="menu-button no-select blue-bg" 
+                id="update-button" 
+                onClick={handleUpdate}>Update
+            </button>
             <button 
                 type="button" 
                 className="menu-button no-select red-bg" 
