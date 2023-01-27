@@ -15,15 +15,15 @@ const ExpenseList = ({ expenses, totalCost }) => {
                 <h2 className="cost">${ totalCost }</h2>
             </div>
             {expenses.map((expense) => (
-                <Link to={"/expense/" + expense.id} className="expense-link" key={ expense.id }>
-                    <div className="expense">
-                        <input type="checkbox" className="select-button" id={ "checkbox_" + expense.id } />
+                <div key={expense.id} className="expense">
+                    <input type="checkbox" className="select-button" id={ "checkbox_" + expense.id } />
+                    <Link to={"/expense/" + expense.id} className="expense-grid expense-link">
                         <h2>{ expense.title }</h2>
                         <h2 className="cost">${ expense.amount }</h2>
                         <p>{ expense.summary }</p>
                         <p className="date">{ expense.date }</p>
-                    </div>
-                </Link>
+                    </Link>
+                </div>
             ))}
         </div>
     );

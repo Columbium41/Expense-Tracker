@@ -116,29 +116,29 @@ p {
 
 /* EXPENSE ITEMS */
 .expense {
-  display: grid;
-  grid-template-columns: 1fr 16fr 8fr;
-  gap: 5px;
-
-  align-items: center;
-
-  margin-bottom: 25px;
-  padding: 8px;
-
   transition: box-shadow 0.3s;
+  display: flex;
+  align-items: center;
 }
 .expense:hover {
   box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
 }
-.select-button {
-  grid-row: span 2;
+.expense-grid {
+  display: grid;
+  grid-template-columns: 16fr 8fr;
+  gap: 5px;
+
+  align-items: center;
+
+  padding: 8px;
+  flex-grow: 1;
 }
 .cost,
 .date {
   justify-self: end;
 }
-.expense > h2,
-.expense > p {
+.expense-grid > h2,
+.expense-grid > p {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
