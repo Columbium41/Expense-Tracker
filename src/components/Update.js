@@ -36,7 +36,7 @@ const Update = ({selectedExpense}) => {
 
     return (
         <div className="container">
-            <Link to="/"><button id="back-button" className="menu-button red-bg">Back</button></Link>
+            <Link to="/"><button id="back-button" className="menu-button red-bg no-select">Back</button></Link>
             <h2 className="header">Update Expense</h2>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="">Title: </label>
