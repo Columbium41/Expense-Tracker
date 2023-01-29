@@ -11,7 +11,7 @@ Currently a work-in-progress expense tracker web app built with the React JavaSc
 - React State hooks
 - React Effect hooks
 - React Custom hooks
-- Basics of POST Requests
+- Basics of REST APIs & HTTP Requests with json-server
 - Basics of HTML Forms
 - React History hooks
 - React Parameter hooks
