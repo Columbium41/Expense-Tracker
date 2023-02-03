@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
+import useFetch from "../hooks/useFetch";
 
 const Update = ({selectedExpense}) => {
     const [title, setTitle] = useState((selectedExpense) ? selectedExpense.title : "");
@@ -10,25 +11,35 @@ const Update = ({selectedExpense}) => {
     const [isUpdating, setIsUpdating] = useState(false);
     const history = useHistory();
 
+    const {data: expenses} = useFetch();
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
         if (selectedExpense !== null) {
-            const expense = { title, date, amount, summary };
+            const expense = { title, date, amount, summary, id: selectedExpense.id };
 
-            setIsUpdating(true);
+            try {
+                setIsUpdating(true);
 
-            fetch(`http://localhost:8000/expenses/${selectedExpense.id}`, {
-                method: "PATCH",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(expense)
-            }).then(() => {
+                var newExpenses = new Array(expenses.length);
+                for (var i = 0; i < expenses.length; i++) {
+                    if (expenses[i].id === selectedExpense.id) {
+                        newExpenses[i] = expense;
+                    }
+                    else {
+                        newExpenses[i] = expenses[i];
+                    }
+                }
+
+                localStorage.setItem("expenses", JSON.stringify(newExpenses));
+            }
+            catch (err) {
+                console.log(err);
+            }
+            finally {
                 setIsUpdating(false);
-
-                history.push('/');
-            });
+            }
         }
         history.push('/');
 

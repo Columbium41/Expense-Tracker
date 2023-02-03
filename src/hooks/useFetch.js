@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
  */
 const useFetch = () => {
     const [data, setData] = useState([]);
-    const [nextID, setNextID] = useState(0);
+    const [nextID, setNextID] = useState(1);
     const [isFetching, setIsFetching] = useState(true);
     const [fetchError, setFetchError] = useState(false);
 
@@ -28,7 +28,7 @@ const useFetch = () => {
                 setNextID(parseInt(fetchedID));
             }
             else {
-                localStorage.setItem("nextID", 0);
+                localStorage.setItem("nextID", 1);
             }
         }
         catch (err) {
