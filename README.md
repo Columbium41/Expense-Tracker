@@ -1,9 +1,15 @@
-# Expense Tracker (WIP)
+# Expense Tracker
+
+## Table of Contents
+- [About](#About)
+- [What I Learned](#What-I-Learned)
+- [Preview](#Preview)
+- [Web App Link](#Web-App-Link)
 
 ## About
-Currently a work-in-progress expense tracker web app built with the React JavaScript library. 
+A React web app that lets users track expenses with create, read, update, and delete functionalities. 
 
-## Some things I learned so far
+## What I Learned
 - Basics of CSS Grid
 - JSX expressions
 - React Components
@@ -15,3 +21,10 @@ Currently a work-in-progress expense tracker web app built with the React JavaSc
 - Basics of HTML Forms
 - React History hooks
 - React Parameter hooks
+- Basics of Javascript localStorage
+
+## Preview
+![preview-1](https://user-images.githubusercontent.com/75919484/216506537-6acf4fef-3789-42ff-a40a-99b24844949d.png)
+
+## Web App Link
+
