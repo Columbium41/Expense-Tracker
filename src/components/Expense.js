@@ -3,9 +3,16 @@ import useFetch from "../hooks/useFetch";
 
 const Expense = () => {
     const params = useParams();
-    const id = params.id;
+    const id = parseInt(params.id);
     
-    const { data: expense, isFetching, fetchError } = useFetch(`http://localhost:8000/expenses/${id}`);
+    const { data: expenses, isFetching, fetchError } = useFetch();
+
+    var expense = null;
+    for (var i = 0; i < expenses.length; i++) {
+        if (expenses[i].id === id) {
+            expense = expenses[i];
+        }
+    }
 
     return (
         <div className="container">

@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { useState } from 'react';
 import NotFound from './components/NotFound';
 import Expense from './components/Expense';
+import useFetch from './hooks/useFetch';
 
 /**
  * Returns a JSX element containing the react app

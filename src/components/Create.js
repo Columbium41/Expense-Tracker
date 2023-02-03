@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
+import useFetch from "../hooks/useFetch";
 
 const Create = () => {
     const [title, setTitle] = useState('');
@@ -9,23 +10,27 @@ const Create = () => {
     const [summary, setSummary] = useState('');
     const [isPosting, setIsPosting] = useState(false);
     const history = useHistory();
+
+    const {data: expenses, nextID} = useFetch();
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        const expense = { title, date, amount, summary };
-
-        setIsPosting(true);
-
-        fetch('http://localhost:8000/expenses', {
-            method: 'POST',
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(expense)
-        }).then(() => {
+        const id = nextID;
+        
+        const expense = { title, date, amount, summary, id };
+        
+        try {
+            setIsPosting(true);
+            localStorage.setItem("expenses", JSON.stringify([...expenses, expense]));
+            localStorage.setItem("nextID", id + 1);
+        }
+        catch (err) {
+            console.log(err);
+        }
+        finally {
             setIsPosting(false);
-
-            // Redirect user back to home page after posting new expense
             history.push('/');
-        });
+        }
     };
 
     return (

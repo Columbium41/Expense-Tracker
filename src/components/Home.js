@@ -22,13 +22,14 @@ function calculateTotalCost(expenses) {
  * @returns {JSX.Element} The Home component for the app
  */
 const Home = ({setSelectedExpense}) => {
+    
+    // fetch data from local storage
+    const {data: expenses, isFetching, fetchError} = useFetch();
+
     const history = useHistory();
 
     // Create a state hook containing the total of all displayed expenses
     const [totalCost, setTotalCost] = useState(0);
-
-    // Fetch data from json server
-    const { data: expenses, isFetching, fetchError } = useFetch('http://localhost:8000/expenses/');
 
     // Create an effect hook that runs everytime 'expenses' changes
     useEffect(() => {
@@ -62,20 +63,17 @@ const Home = ({setSelectedExpense}) => {
     const handleDelete = () => {
         var deleted = false;
 
-        // Loop through all expenses
-        for (var i = 0; i < expenses.length; i++) {
-            const id = expenses[i].id;
-            const selected = document.querySelector(`#checkbox_${id}`).checked;
+        const newExpense = expenses.filter((expense) => {
+            const selected = document.querySelector(`#checkbox_${expense.id}`).checked;
 
             if (selected) {
-                fetch(`http://localhost:8000/expenses/${id}`, {
-                    method: "DELETE"
-                });
                 deleted = true;
             }
-        }
+            return !selected;
+        });
 
         if (deleted) {
+            localStorage.setItem("expenses", JSON.stringify(newExpense));
             history.go(0);
         }
 
