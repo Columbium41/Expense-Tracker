@@ -57,6 +57,7 @@ const Update = ({selectedExpense}) => {
                     required 
                     value={title} 
                     onChange={(e) => setTitle(e.target.value)}
+                    className="form-input"
                  />
                 
                 <label htmlFor="">Date: </label>
@@ -66,6 +67,7 @@ const Update = ({selectedExpense}) => {
                     required 
                     value={date}
                     onChange={(e) => setDate(e.target.value)}
+                    className="form-input"
                 />
 
                 <label htmlFor="">Amount: </label>
@@ -75,6 +77,7 @@ const Update = ({selectedExpense}) => {
                     required 
                     value={amount}
                     onChange={(e) => setAmount(Number(e.target.value))}
+                    className="form-input"
                 />
             
                 <label htmlFor="">Summary: </label>
@@ -84,6 +87,7 @@ const Update = ({selectedExpense}) => {
                     required 
                     value={summary}
                     onChange={(e) => setSummary(e.target.value)}
+                    className="form-input"
                 />
 
                 {!isUpdating && <button id="create-expense-button" className="menu-button blue-bg">

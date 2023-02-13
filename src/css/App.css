@@ -31,6 +31,7 @@
   margin: 50px auto;
   min-width: 450px;
   max-width: 600px;
+  padding: 0 1ch;
 }
 p {
   font-size: 18px;
@@ -156,10 +157,10 @@ form {
   align-items: center;
 }
 
-form > input {
+.form-input {
   font-size: inherit;
   font-family: inherit;
-  width: 50%;
+  width: 60%;
   padding: 0.5ch 1ch;
   margin-bottom: 10px;
   border-radius: 5px;
@@ -184,6 +185,7 @@ form > input {
     width: 100%;
     min-width: unset;
     max-width: unset;
+    
   }
   .navbar {
     justify-content: center;
@@ -191,7 +193,7 @@ form > input {
   .navbar #links {
     display: none;
   }
-  form > input {
+  .form-input {
     width: 80%;
   }
   .top-menu {
@@ -204,9 +206,6 @@ form > input {
 @media only screen and (min-width: 600px) and (max-width: 799px) {
   .container {
     width: 80%;
-  }
-  form > input {
-    width: 60%;
   }
 }
 

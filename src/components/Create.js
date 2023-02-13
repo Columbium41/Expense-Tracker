@@ -45,6 +45,7 @@ const Create = () => {
                     required 
                     value={title} 
                     onChange={(e) => setTitle(e.target.value)}
+                    className="form-input"
                  />
                 
                 <label htmlFor="">Date: </label>
@@ -54,6 +55,7 @@ const Create = () => {
                     required 
                     value={date}
                     onChange={(e) => setDate(e.target.value)}
+                    className="form-input"
                 />
 
                 <label htmlFor="">Amount: </label>
@@ -63,6 +65,7 @@ const Create = () => {
                     required 
                     value={amount}
                     onChange={(e) => setAmount(Number(e.target.value))}
+                    className="form-input"
                 />
             
                 <label htmlFor="">Summary: </label>
@@ -72,6 +75,7 @@ const Create = () => {
                     required 
                     value={summary}
                     onChange={(e) => setSummary(e.target.value)}
+                    className="form-input"
                 />
 
                 {!isPosting && <button id="create-expense-button" className="menu-button green-bg">
